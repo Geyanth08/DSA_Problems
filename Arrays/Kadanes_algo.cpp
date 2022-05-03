@@ -1,3 +1,4 @@
+// Leetcode link - https://leetcode.com/problems/maximum-subarray/
 // Kadane's Algorithm
 
 /*
@@ -15,36 +16,42 @@
 using namespace std;
 
 // Function Declaration
-int kadane_algo(int arr[],int n);
+int kadane_algo(int arr[], int n);
 
 // Main Function
-int main(){
+int main()
+{
     int n;
     cin >> n;
 
     int arr[n];
-    for(int i=0;i<n;i++){
+    for (int i = 0; i < n; i++)
+    {
         cin >> arr[i];
     }
 
-    cout << kadane_algo(arr,n) << endl;
+    cout << kadane_algo(arr, n) << endl;
 
     return 0;
 }
 
 // Using Kadane's Algorithm -> Time Complexity - O(n), Space Complexity - O(1)
-int kadane_algo(int arr[],int n){
-    
+int kadane_algo(int arr[], int n)
+{
+
     int curr_max = 0, max_so_far = INT_MIN;
 
-    for(int i=0;i<n;i++){
+    for (int i = 0; i < n; i++)
+    {
         curr_max += arr[i];
 
-        if(curr_max > max_so_far){
+        if (curr_max > max_so_far)
+        {
             max_so_far = curr_max;
         }
 
-        if(curr_max < 0){
+        if (curr_max < 0)
+        {
             curr_max = 0;
         }
     }
