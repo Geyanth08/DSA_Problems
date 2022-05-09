@@ -1,3 +1,4 @@
+// Leetcode link - https://leetcode.com/problems/longest-consecutive-sequence/
 // Longest Consecutive Subsequence
 
 #include <bits/stdc++.h>
@@ -21,6 +22,7 @@ int main(){
     return 0;
 }
 
+// sort and traverse -> Time Complexity - O(NlogN), Space Complexity - O(1)
 int longest_consecutive_subseq1(int arr[],int n){
     int ans = 0, count = 0;
 

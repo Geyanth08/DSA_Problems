@@ -1,3 +1,4 @@
+// Leetcode link - https://leetcode.com/problems/two-sum/
 // Count the pairs with given sum
 
 #include <bits/stdc++.h>
