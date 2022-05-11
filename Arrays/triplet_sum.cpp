@@ -1,3 +1,4 @@
+// Leetcode link - https://leetcode.com/problems/3sum/
 // Find if there is a triplet sum in the array (a + b + c = X)
 
 #include <bits/stdc++.h>
