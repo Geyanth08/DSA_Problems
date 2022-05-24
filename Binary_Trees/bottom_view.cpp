@@ -1,14 +1,17 @@
+// GeeksForGeeks link - https://practice.geeksforgeeks.org/problems/bottom-view-of-binary-tree/1#
 // Bottom View of Binary Tree
 
 #include <bits/stdc++.h>
 using namespace std;
 
 // Creating a Node
-struct Node{
+struct Node
+{
     int data;
     Node *left, *right;
 
-    Node(int val){
+    Node(int val)
+    {
         data = val;
         left = right = NULL;
     }
@@ -18,7 +21,8 @@ struct Node{
 vector<int> bottomView(Node *root);
 
 // Main Function
-int main(){
+int main()
+{
 
     /*
             1
@@ -41,23 +45,27 @@ int main(){
 
     vector<int> view;
     view = bottomView(root); // 4 2 1 3 6
-    for(int i=0;i<view.size();i++){
+    for (int i = 0; i < view.size(); i++)
+    {
         cout << view[i] << " ";
-    }cout << "\n";
-
+    }
+    cout << "\n";
 }
 
 // Using Vertical Traversal - Time Complexity - O(n), Space Complexity - O(n)
-vector<int> bottomView(Node *root){
+vector<int> bottomView(Node *root)
+{
     vector<int> bView;
-    if(root == NULL) return bView;
+    if (root == NULL)
+        return bView;
 
-    queue<pair<Node*,int>> q;
-    map<int,int> m;
+    queue<pair<Node *, int>> q;
+    map<int, int> m;
 
-    q.push({root,0});
+    q.push({root, 0});
 
-    while(!q.empty()){
+    while (!q.empty())
+    {
         auto it = q.front();
         q.pop();
 
@@ -65,11 +73,14 @@ vector<int> bottomView(Node *root){
         int line = it.second;
         m[line] = temp->data;
 
-        if(temp->left != NULL) q.push({temp->left, line-1});
-        if(temp->right != NULL) q.push({temp->right, line+1});
+        if (temp->left != NULL)
+            q.push({temp->left, line - 1});
+        if (temp->right != NULL)
+            q.push({temp->right, line + 1});
     }
 
-    for(auto it : m){
+    for (auto it : m)
+    {
         bView.push_back(it.second);
     }
 
