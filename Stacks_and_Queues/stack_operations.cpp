@@ -5,19 +5,23 @@
 #define n 100
 
 // Implementation of Stack using Arrays -> Time Complexity - O(n)
-class stack{
+class stack
+{
 
     int *arr;
     int top;
 
-    public:
-    stack(){
+public:
+    stack()
+    {
         arr = new int[n];
         top = -1;
     }
 
-    void push(int x){
-        if(top==n-1){
+    void push(int x)
+    {
+        if (top == n - 1)
+        {
             std::cout << "Stack Overflow";
             return;
         }
@@ -26,8 +30,10 @@ class stack{
         arr[top] = x;
     }
 
-    void pop(){
-        if(top==-1){
+    void pop()
+    {
+        if (top == -1)
+        {
             std::cout << "No Elemnts in the stack to pop";
             return;
         }
@@ -35,8 +41,10 @@ class stack{
         top--;
     }
 
-    int Top(){
-        if(top==-1){
+    int Top()
+    {
+        if (top == -1)
+        {
             std::cout << "No Elemnts in the stack to pop";
             return -1;
         }
@@ -44,14 +52,15 @@ class stack{
         return arr[top];
     }
 
-    bool isEmpty(){
-        return top==-1;
+    bool isEmpty()
+    {
+        return top == -1;
     }
-
 };
 
 // Main Function
-int main(){
+int main()
+{
 
     stack s;
 
@@ -65,10 +74,15 @@ int main(){
 
     std::cout << s.Top() << "\n";
 
-    if(s.isEmpty()){
-        std::cout << "Stack is Empty" << "\n";
-    }else{
-        std::cout << "Stack Contains Elements" << "\n";
+    if (s.isEmpty())
+    {
+        std::cout << "Stack is Empty"
+                  << "\n";
+    }
+    else
+    {
+        std::cout << "Stack Contains Elements"
+                  << "\n";
     }
 
     return 0;
