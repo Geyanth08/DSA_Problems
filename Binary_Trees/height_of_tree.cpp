@@ -1,14 +1,17 @@
+// Leetcode link - https://leetcode.com/problems/maximum-depth-of-binary-tree/
 // Height / Depth of the Binary Tree
 
 #include <bits/stdc++.h>
 using namespace std;
 
 // Creating a Node in Binary Tree
-struct Node {
+struct Node
+{
     int data;
     struct Node *left, *right;
 
-    Node(int val){
+    Node(int val)
+    {
         this->data = val;
         this->left = nullptr;
         this->right = nullptr;
@@ -16,11 +19,12 @@ struct Node {
 };
 
 // Function Declaration
-int height(struct Node* root);
+int height(struct Node *root);
 
 // Main Function
-int main(){
-    
+int main()
+{
+
     /*
             1
            / \
@@ -44,12 +48,14 @@ int main(){
 }
 
 // Using Recursion -> Time Complexity - O(n), Space Complexity - O(n)
-int height(struct Node* root){
+int height(struct Node *root)
+{
 
-    if(root == NULL) return 0;
-    
+    if (root == NULL)
+        return 0;
+
     int lh = height(root->left);
     int rh = height(root->right);
-    
-    return 1 + max(lh,rh);
+
+    return 1 + max(lh, rh);
 }
