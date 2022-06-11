@@ -1,14 +1,17 @@
+// Leetcode link - https://leetcode.com/problems/balanced-binary-tree/
 // Check Whether the given tree is balanced or not
 
 #include <bits/stdc++.h>
 using namespace std;
 
 // Creating a Node in Binary Tree
-struct Node {
+struct Node
+{
     int data;
     struct Node *left, *right;
 
-    Node(int val){
+    Node(int val)
+    {
         this->data = val;
         this->left = nullptr;
         this->right = nullptr;
@@ -20,8 +23,9 @@ int heightOfTree(Node *root);
 bool isBalanced(Node *root);
 
 // Main Function
-int main(){
-    
+int main()
+{
+
     /*
             1
            / \
@@ -38,9 +42,12 @@ int main(){
     root->left->right = new Node(5);
     root->right->right = new Node(6);
 
-    if(isBalanced(root)){
+    if (isBalanced(root))
+    {
         cout << "Tree is Balanced";
-    }else{
+    }
+    else
+    {
         cout << "Tree is not Balanced";
     }
 
@@ -48,19 +55,25 @@ int main(){
 }
 
 // Finding Height of Tree
-int heightOfTree(Node *root){
-    if(root == NULL) return 0;
-    
+int heightOfTree(Node *root)
+{
+    if (root == NULL)
+        return 0;
+
     int lh = heightOfTree(root->left);
-    if(lh == -1) return -1;
+    if (lh == -1)
+        return -1;
     int rh = heightOfTree(root->right);
-    if(rh == -1) return -1;
-    
-    if(abs(lh - rh) > 1) return -1;
-    return max(lh,rh)+1;
+    if (rh == -1)
+        return -1;
+
+    if (abs(lh - rh) > 1)
+        return -1;
+    return max(lh, rh) + 1;
 }
 
-// Using Height of Tree -> Time Complexity - O(n), Space Complexity - O(1)   
-bool isBalanced(Node *root){
+// Using Height of Tree -> Time Complexity - O(n), Space Complexity - O(1)
+bool isBalanced(Node *root)
+{
     return heightOfTree(root) != -1;
 }
