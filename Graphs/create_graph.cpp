@@ -8,50 +8,57 @@ void adjacent_matrix();
 void adjacent_list();
 
 // Main Function
-int main(){
-    
+int main()
+{
+
     adjacent_matrix();
     adjacent_list();
 
     return 0;
 }
 
-// Represention of Graph by Adjacency Matrix -> Time Complexity - O(N^2), Space Complexity - O(N^2) 
-void adjacent_matrix(){
-    int n,m; // n - Number of nodes, m - no of edges
+// Representation of Graph by Adjacency Matrix -> Time Complexity - O(N^2), Space Complexity - O(N^2)
+void adjacent_matrix()
+{
+    int n, m; // n - Number of nodes, m - no of edges
     cin >> n >> m;
 
-    int adj[n][n]={0};
+    int adj[n][n] = {0};
 
     // creating graph
-    for(int i=0;i<m;i++){
-        int u,v;
+    for (int i = 0; i < m; i++)
+    {
+        int u, v;
         cin >> u >> v;
 
-        // For undirected Graph 
+        // For undirected Graph
         adj[u][v] = 1;
         adj[v][u] = 1;
     }
 
     // printing graph
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
             cout << adj[i][j] << " ";
         }
         cout << "\n";
     }
 }
 
-// Representaion of Graph by Adjacency List -> Time Complexity - O(n^2(m)), Space Complexity - O(n+2m)
-void adjacent_list(){
+// Representation of Graph by Adjacency List -> Time Complexity - O(n^2(m)), Space Complexity - O(n+2m)
+void adjacent_list()
+{
 
-    int n,m; // n - Number of nodes, m - no of edges
+    int n, m; // n - Number of nodes, m - no of edges
     cin >> n >> m;
 
     // creating graph
     vector<int> G[n];
-    for(int i=0;i<m;i++){
-        int u,v;
+    for (int i = 0; i < m; i++)
+    {
+        int u, v;
         cin >> u >> v;
 
         // For undirected graph
@@ -60,11 +67,13 @@ void adjacent_list(){
     }
 
     // printing graph
-    for(int i=0;i<n;i++){
+    for (int i = 0; i < n; i++)
+    {
         cout << "vertex " << i;
-        for(auto j : G[i]){
+        for (auto j : G[i])
+        {
             cout << " -> " << j;
-        }cout << "\n";
+        }
+        cout << "\n";
     }
-    
 }

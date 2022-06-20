@@ -1,3 +1,4 @@
+// Practice link - https://practice.geeksforgeeks.org/problems/bfs-traversal-of-graph/1
 // Breadth First Search Traversal of Graph
 
 #include <bits/stdc++.h>
@@ -7,15 +8,17 @@ using namespace std;
 vector<int> bfsOfGraph(int V, vector<int> adj[]);
 
 // Main Function
-int main(){
+int main()
+{
 
-    int V,E;
+    int V, E;
     cin >> V >> E;
 
     // Creating graph
     vector<int> adj[V];
-    for(int i=0;i<E;i++){
-        int u,v;
+    for (int i = 0; i < E; i++)
+    {
+        int u, v;
         cin >> u >> v;
 
         // Directed Graph
@@ -23,9 +26,10 @@ int main(){
     }
 
     vector<int> bfsTraversal;
-    bfsTraversal = bfsOfGraph(V,adj);    
+    bfsTraversal = bfsOfGraph(V, adj);
 
-    for(auto it : bfsTraversal){
+    for (auto it : bfsTraversal)
+    {
         cout << it << " ";
     }
 
@@ -33,24 +37,29 @@ int main(){
 }
 
 // Adding Adjacent nodes to the array -> Time Complexity - O(V+E), Space Complexity - O(V)
-vector<int> bfsOfGraph(int V, vector<int> adj[]) {
+vector<int> bfsOfGraph(int V, vector<int> adj[])
+{
 
-    vector<int> visitedArray(V,0);
+    vector<int> visitedArray(V, 0);
     vector<int> bfs;
-    
-    int i=0;
-    if(!visitedArray[i]){
+
+    int i = 0;
+    if (!visitedArray[i])
+    {
         queue<int> q;
         q.push(i);
         visitedArray[i] = 1;
-        
-        while(!q.empty()){
+
+        while (!q.empty())
+        {
             int node = q.front();
             q.pop();
             bfs.push_back(node);
-            
-            for(auto it : adj[node]){
-                if(!visitedArray[it]){
+
+            for (auto it : adj[node])
+            {
+                if (!visitedArray[it])
+                {
                     visitedArray[it] = 1;
                     q.push(it);
                 }
